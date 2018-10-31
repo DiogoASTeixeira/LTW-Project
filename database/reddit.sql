@@ -32,3 +32,5 @@ CREATE TABLE comments
 
 
 INSERT INTO users VALUES ("admin",  "admin", "admin@admin.com");
+
+INSERT INTO posts VALUES (1, "asd", 12312, "Example", "This is an example", 5);
