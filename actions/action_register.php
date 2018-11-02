@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include_once(__DIR__ . '/../database/connection.php');
 
 $username = $_POST['username'];
