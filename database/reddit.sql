@@ -12,7 +12,7 @@ CREATE TABLE users
 CREATE TABLE posts
 (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  author VARCHAR,
+  author VARCHAR NOT NULL,
   date DATE NOT NULL,
   title VARCHAR,
   textbody TEXT,
@@ -25,6 +25,7 @@ CREATE TABLE comments
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   idPost INTEGER NOT NULL,
   date DATE NOT NULL,
+  author VARCHAR NOT NULL,
   textbody TEXT,
   upvotes INTEGER NOT NULL,
   FOREIGN KEY (idPost) REFERENCES posts(id)
@@ -36,8 +37,7 @@ INSERT INTO users VALUES ("admin",  "admin", "admin@admin.com");
 INSERT INTO posts VALUES (1, "asd", 1541156269, "Example", "This is an example", 5);
 INSERT INTO posts VALUES (2, "asd", 1541156269, "Example", "This is an example", 5);
 INSERT INTO posts VALUES (3, "asd", 1541156269, "Example", "This is an example", 5);
-INSERT INTO posts VALUES (4, "asd", 1541156269, "Example", "This is an example", 5);
-INSERT INTO posts VALUES (5, "asd", 1541156269, "Example", "This is an example", 5);
-INSERT INTO posts VALUES (6, "asd", 1541156269, "Example", "This is an example", 5);
-INSERT INTO posts VALUES (7, "asd", 1541156269, "Example", "This is an example", 5);
-INSERT INTO posts VALUES (8, "asd", 1541156269, "Example", "This is an example", 5);
+
+INSERT INTO comments VALUES(1, 1, 1541156300, "admin", "Cool Post", 3);
+INSERT INTO comments VALUES(2, 1, 1541156300, "dabKing", "Thank you OP, very cool", 100);
+INSERT INTO comments VALUES(3, 3, 1541156300, "dabKing", "EVERYBODY DAB", 10234);
