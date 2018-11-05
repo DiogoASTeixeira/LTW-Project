@@ -4,31 +4,31 @@ DROP TABLE IF EXISTS comments;
 
 CREATE TABLE users
 (
-  username VARCHAR PRIMARY KEY,
-  password VARCHAR,
-  email VARCHAR
+    username VARCHAR PRIMARY KEY,
+    password VARCHAR,
+    email VARCHAR
 );
 
 CREATE TABLE posts
 (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  author VARCHAR NOT NULL,
-  date DATE NOT NULL,
-  title VARCHAR,
-  textbody TEXT,
-  upvotes INTEGER NOT NULL,
-  FOREIGN KEY (author) REFERENCES users(username)
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    author VARCHAR NOT NULL,
+    date DATE NOT NULL,
+    title VARCHAR,
+    textbody TEXT,
+    upvotes INTEGER NOT NULL,
+    FOREIGN KEY (author) REFERENCES users(username)
 );
 
 CREATE TABLE comments
 (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  idPost INTEGER NOT NULL,
-  date DATE NOT NULL,
-  author VARCHAR NOT NULL,
-  textbody TEXT,
-  upvotes INTEGER NOT NULL,
-  FOREIGN KEY (idPost) REFERENCES posts(id)
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    idPost INTEGER NOT NULL,
+    author VARCHAR NOT NULL,
+    date DATE NOT NULL,
+    textbody TEXT,
+    upvotes INTEGER NOT NULL,
+    FOREIGN KEY (idPost) REFERENCES posts(id)
 );
 
 

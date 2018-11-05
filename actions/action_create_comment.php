@@ -2,11 +2,11 @@
 	include_once('../database/connection.php');
 
 	$username = $_POST["username"];
-	$title = $_POST["title"];
-	$fulltext = $_POST["fulltext"];
-	$epoch = time(); 
+	$text = $_POST["textbody"];
+	$epoch = time();
+	$idPost = $_POST["idPost"];
 
-	$sql = "INSERT INTO posts (author, date, title, textbody, upvotes) VALUES (:author, :date, :title, :textbody, :upvotes)";
+	$sql = "INSERT INTO comments (author, date, title, textbody, upvotes) VALUES (:author, :date, :title, :textbody, :upvotes)";
 	$params = [':author' => $username, ':date' => $epoch, ':title' => $title, ':textbody' => $fulltext, ':upvotes' => 0];
 
 	try {
