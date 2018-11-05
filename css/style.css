@@ -1,12 +1,14 @@
 body {
 	background-color: black;
-	color: white;
+	color: #c0c2b9;
 }
 
 a:link {
 	color: #e59f12;
+	text-decoration: none;
 }
 
 a:visited {
 	color: #755308;
+	text-decoration: none;
 }
