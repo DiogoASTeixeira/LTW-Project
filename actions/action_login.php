@@ -7,7 +7,10 @@ if (userExists($_POST['username'], $_POST['password'])) {  // test if user exist
 	$_SESSION['loggedin'] = true;
 	$_SESSION['username'] = $_POST['username'];            // store the username
 	header("Location:../index/index.php");
+	die();
+} else {
+	//TODO Add warning for invalid login
+	header("Location:../authentication/login.php");
+	die();
 }
-else echo "Invalid Login!";
-die();
 ?>
