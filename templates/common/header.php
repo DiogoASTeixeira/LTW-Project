@@ -6,11 +6,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/style.css" rel="stylesheet">
+        <link href="../css/layout.css" rel="stylesheet">
+
     </head>
     <body>
         <header>
-            <h1><a href="../index.php">Reddit</a></h1>
-            <h2><a href="../index.php">The front page of the Internet!</a></h2>
+            <h1><a href="../index.php">WeebSite</a></h1>
+            <h2 id="search_bar"><a href="../index.php">Barra de Pesquisa</a></h2>
             <?php
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             ?>

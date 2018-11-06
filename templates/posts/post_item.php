@@ -7,7 +7,7 @@ $post = getPost($postId);
 $comments = getPostComments($postId);
 
 ?>
-<section id = post>
+<section id = single_post>
     <h1><?= $post["title"] ?></h1>
     <p id="author">by <a href="user_page.php?username=<?= $post['author'] ?>"><?= $post['author'] ?></a></p>
     <p id="date">in <?= date("d-m-Y", $post['date']) ?></p>

@@ -1,0 +1,60 @@
+header {
+	display: grid;
+	grid-template-columns: [first] auto [second] auto [third] auto [fourth];
+	grid-template-rows: [top] auto [mid] auto [bot];
+}
+
+header h1 {
+	grid-area: mid / first / bot / second;
+}
+
+header h3 {
+	grid-area: top / third / mid / fourth;
+}
+
+#search_bar {
+	grid-area: mid / second / bot / third;
+}
+
+header div {
+	grid-area: mid / third / bot / fourth;
+}
+
+#single_comment{
+	display: grid;
+	grid-template-rows: [top] auto [mid] auto [bot];
+	grid-template-columns: [first] auto [second] auto [third] auto [fourth];
+}
+#single_comment #author{
+	grid-area: top / first / mid / second;
+}
+#single_comment #upvotes{
+	grid-area: top / second / mid / third;
+}
+#single_comment #date{
+	grid-area: top / third / mid / fourth;
+}
+#single_comment #textbody{
+	grid-area: mid / first / bot / fourth;
+}
+
+form {
+	display: grid;
+	grid-template-rows: [top] 3em [mid] 3em [midbot] 3em [bot];
+	grid-template-columns: [first] 20% [second] auto [third];
+}
+label[for=uname]{
+	grid-area: top / first / mid / second;
+}
+label[for=psw]{
+	grid-area: mid / first / midbot / second;
+}
+input[type=username]{
+	grid-area: top / second / mid / third;
+}
+input[type=password]{
+	grid-area: mid / second / midbot / third;
+}
+input[type=submit]{
+	grid-area: midbot / second / bot / third;
+}
