@@ -38,6 +38,6 @@ INSERT INTO posts VALUES (1, "asd", 1541156269, "Example", "This is an example",
 INSERT INTO posts VALUES (2, "asd", 1541156269, "Example", "This is an example", 5);
 INSERT INTO posts VALUES (3, "asd", 1541156269, "Example", "This is an example", 5);
 
-INSERT INTO comments VALUES(1, 1, 1541156300, "admin", "Cool Post", 3);
-INSERT INTO comments VALUES(2, 1, 1541156300, "dabKing", "Thank you OP, very cool", 100);
-INSERT INTO comments VALUES(3, 3, 1541156300, "dabKing", "EVERYBODY DAB", 10234);
+INSERT INTO comments VALUES(1, 1, "admin",1541156300, "Cool Post", 3);
+INSERT INTO comments VALUES(2, 1, "dabKing", 1541156300, "Thank you OP, very cool", 100);
+INSERT INTO comments VALUES(3, 3, "dabKing",1541156300, "EVERYBODY DAB", 10234);

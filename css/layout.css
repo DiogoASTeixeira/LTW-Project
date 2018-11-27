@@ -52,9 +52,11 @@ label[for=psw]{
 input[type=username]{
 	grid-area: top / second / mid / third;
 }
+/*
 input[type=password]{
 	grid-area: mid / second / midbot / third;
 }
+*/
 input[type=submit]{
 	grid-area: midbot / second / bot / third;
 }
