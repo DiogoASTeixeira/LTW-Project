@@ -8,7 +8,7 @@ include_once('../templates/common/header.php');
     <li>2. <img src="../images/pr.jpg "style="width:128px;height:128px;"</li>
 </ul>
  
-<form action="../actions/action_change_password.php" method="post">
+<form class="change_psw" action="../actions/action_change_password.php" method="post">
     <label for="oldPasswordLabel"><b>Old Password</b></label>
     <input type="password" name="oldPassword" required><br>
     
