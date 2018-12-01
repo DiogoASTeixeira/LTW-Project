@@ -1,10 +1,10 @@
 <?php
-include_once('connection.php');
+include_once('../includes/db_connection.php');
 function getPostComments($postId)
 {
     global $db;
-    if ($stmt = $db->prepare('SELECT * FROM comments WHERE idPost=:postId ORDER BY upvotes DESC')) {
-        $params = [':postId' => $postId];
+    if ($stmt = $db->prepare('SELECT * FROM comments WHERE post_id=:post_id ORDER BY upvotes DESC')) {
+        $params = [':post_id' => $postId];
         $stmt->execute($params);
         return $stmt->fetchAll();
     } else {
@@ -16,8 +16,8 @@ function getPostComments($postId)
 function getComment($id)
 {
     global $db;
-    if ($stmt = $db->prepare('SELECT * FROM comments WHERE id=:id LIMIT 1')) {
-        $params = [':id' => $id];
+    if ($stmt = $db->prepare('SELECT * FROM comments WHERE comment_id=:comment_id LIMIT 1')) {
+        $params = [':comment_id' => $id];
         $stmt->execute($params);
         return $stmt->fetch();
     } else {

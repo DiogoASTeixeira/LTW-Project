@@ -5,39 +5,36 @@ DROP TABLE IF EXISTS comments;
 CREATE TABLE users
 (
     username VARCHAR PRIMARY KEY,
-    password VARCHAR,
-    email VARCHAR
+    password VARCHAR NOT NULL
 );
 
 CREATE TABLE posts
 (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    author VARCHAR NOT NULL,
+    post_id INTEGER PRIMARY KEY AUTOINCREMENT,
     date DATE NOT NULL,
-    title VARCHAR,
-    textbody TEXT,
+    title VARCHAR NOT NULL,
+    textbody VARCHAR NOT NULL,
     upvotes INTEGER NOT NULL,
-    FOREIGN KEY (author) REFERENCES users(username)
+    username VARCHAR NOT NULL REFERENCES users
 );
 
 CREATE TABLE comments
 (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    idPost INTEGER NOT NULL,
-    author VARCHAR NOT NULL,
+    comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     date DATE NOT NULL,
-    textbody TEXT,
+    textbody VARCHAR NOT NULL,
     upvotes INTEGER NOT NULL,
-    FOREIGN KEY (idPost) REFERENCES posts(id)
+    username VARCHAR NOT NULL REFERENCES users,
+    post_id INTEGER NOT NULL REFERENCES posts
 );
 
 
-INSERT INTO users VALUES ("admin",  "admin", "admin@admin.com");
+INSERT INTO users VALUES ('admin', '$2y$08$jWmJk/bzd5.eKjf.FaaSMelULahxV3tpGhMGscNKtaq812G7znmm2');
 
-INSERT INTO posts VALUES (1, "asd", 1541156269, "Example", "This is an example", 5);
-INSERT INTO posts VALUES (2, "asd", 1541156269, "Example", "This is an example", 5);
-INSERT INTO posts VALUES (3, "asd", 1541156269, "Example", "This is an example", 5);
+INSERT INTO posts VALUES (1, 1541156269, "Example", "This is an example", 5, "author1");
+INSERT INTO posts VALUES (2, 1541156987, "Example 2", "Another Example", 5, "author2");
+INSERT INTO posts VALUES (3, 1541156123, "Example 3", "LAst Example", 5, "author 3");
 
-INSERT INTO comments VALUES(1, 1, "admin",1541156300, "Cool Post", 3);
-INSERT INTO comments VALUES(2, 1, "dabKing", 1541156300, "Thank you OP, very cool", 100);
-INSERT INTO comments VALUES(3, 3, "dabKing",1541156300, "EVERYBODY DAB", 10234);
+INSERT INTO comments VALUES(1, 1541156300, "Cool Post", 3, "admin", 1);
+INSERT INTO comments VALUES(2, 1541156300, "Thank you OP, very cool", 100, "dabKing", 1);
+INSERT INTO comments VALUES(3, 1541156300, "EVERYBODY DAB", 10234, "dabKing", 2);

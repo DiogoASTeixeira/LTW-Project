@@ -1,18 +1,23 @@
 <?php
-include_once(__DIR__ . '/../database/connection.php');
+include_once('../includes/session.php');
+include_once('../database/users.php');
 
 $username = $_POST['username'];
-$email = $_POST['email'];
 $password = $_POST['password'];
-$sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
-$params = [':username' => $username, ':password' => $password, ':email' => $email];
+
+if(!preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
+    //TODO message invalid characters
+    header('Location: ../authentication/register.php');
+    die();
+}
+
 try {
-	if ($stmt = $db->prepare($sql)) {
-		$stmt->execute($params);
-		header("Location: ../authentication/login.php");
-	} else {
-		$db->errorInfo();
-	}
-}catch(Exception $e) {echo "Username already taken.";}
-die();
+    insertUser($username, $password);
+    // TODO message user created
+    header('Location: ../authentication/login.php');
+} catch(PDOException  $e){
+    header('Location: ../authentication/register.php');
+    //TODO message Failed to register
+    die($e->getMessage());
+}
 ?>

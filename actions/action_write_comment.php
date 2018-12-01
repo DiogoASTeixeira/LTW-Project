@@ -1,5 +1,5 @@
 <?php
-	include_once('../database/connection.php');
+	include_once('../includes/db_connection.php');
 
 	$username = $_POST["username"];
 	$text = $_POST["textbody"];

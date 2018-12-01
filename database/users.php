@@ -1,16 +1,30 @@
 <?php
-function userExists($username, $password)
+include_once('../includes/db_connection.php');
+
+function validateUser($username, $password)
 {
-    include('../database/connection.php');
+    global $db;
     $sql = "SELECT password FROM users WHERE username = :username";
     $params = [':username' => $username];
-    if ($stmt = $db->prepare($sql)) {
-        $stmt->execute($params);
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $result = $stmt->fetch();
-        //TODO password encryption
-        return $password === $result["password"];
-    }
-    return false;
+    
+    $stmt = $db->prepare($sql);
+    $stmt->execute($params);
+    
+    $result = $stmt->fetch();
+    
+    return $result !== false && password_verify($password, $result["password"]);
 }
+
+function insertUser($username, $password)
+{
+    global $db;
+    $options = ['cost' => 8];
+
+    $hashed_password= password_hash($password, PASSWORD_DEFAULT, $options);
+    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+    $params = [':username' => $username, ':password' => $hashed_password];
+    
+    $stmt = $db->prepare($sql);
+    $stmt->execute($params);
+    }
 ?>

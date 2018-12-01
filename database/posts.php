@@ -1,5 +1,5 @@
 <?php
-include_once('connection.php');
+include_once('../includes/db_connection.php');
 function getAllPosts()
 {
     global $db;
@@ -11,7 +11,7 @@ function getAllPosts()
 function getPost($id)
 {
     global $db;
-    if ($stmt = $db->prepare('SELECT * FROM posts WHERE id=:id LIMIT 1')) {
+    if ($stmt = $db->prepare('SELECT * FROM posts WHERE post_id=:id LIMIT 1')) {
         $params = [':id' => $id];
         $stmt->execute($params);
         return $stmt->fetch();
