@@ -1,17 +1,12 @@
 <?php
+include_once('../includes/session.php');
 include_once('../templates/common/header.php');
-?>
 
-<form action='../actions/action_register.php' method="post">
-    <label for="uname"><b>Username</b></label>
-    <input type="username" name="username" required><br>
-    
-    <label for="psw"><b>Password</b></label>
-    <input type="password" name="password" required><br>
-
-    <input type="submit" value="Register">
-</form>
-
-<?php
+if(!isset($_SESSION['username']))
+    include_once('../templates/authentication/register.php');
+else{
+    //TODO can't register while logged in
+    header("Location: ../index/index.php");
+}
 include_once('../templates/common/footer.php'); 
 ?> 

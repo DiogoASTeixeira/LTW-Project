@@ -12,7 +12,6 @@ if(!preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
 }
 
 if (validateUser($username, $password)) {  // test if user exists
-    $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;  // store the username in Session
     // TODO message logged in
     header("Location:../index/index.php");

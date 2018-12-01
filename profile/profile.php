@@ -1,12 +1,8 @@
 <?php 
+include_once('../includes/session.php');
 include_once('../templates/common/header.php');
-?>	
 
-<img src="../images/profile_example.png" alt="Profile Picture" style="width:128px;height:128px;">
-<p> <?=$_SESSION["username"]?> </p>
+include_once('../templates/profile/profile.php');
 
-<a href="../profile/edit_profile.php"> Edit Profile </a>
-
-<?php
-    include_once('../templates/common/footer.php');
+include_once('../templates/common/footer.php');
 ?>

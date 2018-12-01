@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en-GB">
     <head>
@@ -14,7 +13,7 @@
             <h1><a href="../index.php">WeebSite</a></h1>
             <h2 id="search_bar"><a href="../index.php">Barra de Pesquisa</a></h2>
             <?php
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            if (isset($_SESSION['username'])) {
             ?>
             <h3>Welcome, <?= $_SESSION["username"] ?></h3>
             <div id="user_action">

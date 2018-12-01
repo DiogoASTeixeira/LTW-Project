@@ -9,7 +9,7 @@ header h3{
     text-align: right;
 }
 header div{
-text-align: right;
+    text-align: right;
 }
 
 #single_post{
@@ -29,7 +29,7 @@ text-align: right;
     margin: 0em;
 }
 #single_comment #upvotes{
-	margin: 0em;
+    margin: 0em;
 }
 
 input[type=username], input[type=password]{
