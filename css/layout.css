@@ -1,7 +1,7 @@
 header {
     display: grid;
-    grid-template-columns: [first] auto [second] auto [third] auto [fourth];
-    grid-template-rows: [top] auto [mid] auto [bot];
+    grid-template-columns: [first] 33% [second] 34% [third] 33% [fourth];
+    grid-template-rows: [top] 50% [mid] 50% [bot];
 }
 
 header h1 {
@@ -22,8 +22,8 @@ header div {
 
 #single_comment{
     display: grid;
-    grid-template-rows: [top] auto [mid] auto [bot];
-    grid-template-columns: [first] auto [second] auto [third] auto [fourth];
+    grid-template-rows: [top] 2em [mid] 3em [bot];
+    grid-template-columns: [first] 33% [second] 34% [third] 33% [fourth];
 }
 #single_comment #author{
     grid-area: top / first / mid / second;
