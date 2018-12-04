@@ -28,6 +28,6 @@ try {
         $db->errorInfo();
     }
 }catch(Exception $e) {
-    //TODO Warn couldnt create post
+    $_SESSION['msg'] = array('type' => 'error', 'message' => 'An error occured while creating the post.');
 }
 ?>

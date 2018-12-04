@@ -31,5 +31,14 @@
             </div>
             <?php 
             } ?>
-
         </header>
+
+        <?php
+        if (isset($_SESSION['msg'])) {
+            $msg = $_SESSION["msg"];
+        ?>
+        <section id="msg">
+            <div class="<?=$msg["type"]?>"><?=$msg["message"]?></div>
+        </section>
+        <?php unset($_SESSION['msg']);}?>
+

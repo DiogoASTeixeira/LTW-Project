@@ -5,7 +5,7 @@ if(isset($_SESSION["username"]))
     include_once('../templates/posts/create_post.php');
 
 else {
-    // TODO message must log in to create post
+    $_SESSION['msg'] = array('type' => 'warning', 'message' => 'Must log in before creating a post.');
     header("Location: ../authentication/login.php");
 }
 

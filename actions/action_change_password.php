@@ -9,20 +9,21 @@ $confirmPassword = $_POST["confirmPassword"];
 
 if($confirmPassword !== $newPassword)
 {
-    //TODO Passwords dont match
-    echo "wrong";
+    $_SESSION['msg'] = array('type' => 'error', 'message' => 'Passwords don\'t match.');
+    header("Location:../profile/profile.php");
     die();
 }
 
 if(!validateUser($username, $oldPassword))
 {
-    //TODO incorrect Old Password 
-    echo "bad";
+    $_SESSION['msg'] = array('type' => 'error', 'message' => 'Old password is incorrect.');
+    header("Location:../profile/profile.php");
     die();
 }
 
 changePassword($username, $newPassword);
 
+$_SESSION['msg'] = array('type' => 'success', 'message' => 'Password changed successfully.');
 header("Location:../profile/profile.php");
 die();
 

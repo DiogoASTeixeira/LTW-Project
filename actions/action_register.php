@@ -6,18 +6,18 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 if(!preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
-    //TODO message invalid characters
+    $_SESSION['msg'] = array('type' => 'error', 'message' => 'Username must only contain letters and numbers.');
     header('Location: ../authentication/register.php');
     die();
 }
 
 try {
     insertUser($username, $password);
-    // TODO message user created
+    $_SESSION['msg'] = array('type' => 'success', 'message' => 'Successfully registered.');
     header('Location: ../authentication/login.php');
 } catch(PDOException  $e){
     header('Location: ../authentication/register.php');
-    //TODO message Failed to register
+    $_SESSION['msg'] = array('type' => 'error', 'message' => 'An error occured while registering.');
     die($e->getMessage());
 }
 ?>
