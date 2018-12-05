@@ -1,7 +1,7 @@
 header {
     display: grid;
     grid-template-columns: [first] 33% [second] 34% [third] 33% [fourth];
-    grid-template-rows: [top] 50% [mid] 50% [bot];
+    grid-template-rows: [top] 3em [mid] 5em [bot];
 }
 
 header h1 {

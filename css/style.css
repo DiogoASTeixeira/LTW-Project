@@ -4,12 +4,21 @@ body {
     font-family:  Helvetica, sans-serif;
 }
 
-
+header h1{
+    text-align: left;
+}
+header h2{
+    text-align: center;
+}
 header h3{
     text-align: right;
 }
 header div{
     text-align: right;
+}
+#signup{
+    text-align: right;
+    padding-top: 25px;
 }
 
 #single_post{
@@ -20,13 +29,22 @@ header div{
     margin-bottom: 1.5em;
     text-indent: 0.5em;
 }
+#single_comment{
+    border-left-style: solid;
+    border-color: aliceblue;
+    border-width: medium;
+    margin-bottom: 1.5em;
+    text-indent: 0.5em;
+    background-color: rgb(24, 24, 24);
+}
+
 #single_post h1{
     font-size: 2em;
     margin: 0.3em 0em;
 }
 #author {
     font-size: 0.8em;
-    margin: 0em;
+    margin: 0.3em;
 }
 #single_comment #upvotes{
     margin: 0em;
