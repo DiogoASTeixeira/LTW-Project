@@ -25,4 +25,19 @@ function getComment($id)
     }
     return false;
 }
+
+function insertComment($username, $text, $postId)
+{
+    $sql = "INSERT INTO comments (date, textbody, upvotes, username, post_id) VALUES (:date, :textbody, :upvotes, :author, :postID)";
+    $params = [':date' => $epoch, ':textbody' => $fulltext, ':upvotes' => 0, ':author' => $username, ':postID' => $postId];
+
+    try {
+        if ($stmt = $db->prepare($sql)) {
+            $stmt->execute($params);
+            header("Location: ..");
+        } else {
+            $db->errorInfo();
+        }
+    }catch(Exception $e) {echo "Couldn't create post.";}
+}
 ?>
