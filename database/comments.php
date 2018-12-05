@@ -34,7 +34,6 @@ function insertComment($username, $text, $postId)
     try {
         if ($stmt = $db->prepare($sql)) {
             $stmt->execute($params);
-            header("Location: ..");
         } else {
             $db->errorInfo();
         }

@@ -5,8 +5,3 @@
     <p id="textbody"><?= $post['textbody'] ?></p>
     <p id = upvote> <?=$post["upvotes"]?> </p>
 </section>
-<form action="../actions/action_create_comment.php" method="post">
-    <input type="hidden" name="postId" value="<?=$post["post_id"]?>">
-    <input type="text" name="commentText"><br>
-    <input type="submit" value="Comment">
-</form>
