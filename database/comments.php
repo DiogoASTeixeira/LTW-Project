@@ -13,6 +13,19 @@ function getPostComments($postId)
     }
 }
 
+function getCommentsOfUser($username)
+{
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM comments WHERE username=:username')) {
+        $params = [':username' => $username];
+        $stmt->execute($params);
+        return $stmt->fetchAll();
+    } else {
+        echo "Couldn't retrieve comments!";
+        return false;
+    }
+}
+
 function getComment($id)
 {
     global $db;

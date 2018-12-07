@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
     <head>
-        <title>Weeb Site</title>    
+        <title>Quokka</title>    
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/style.css" rel="stylesheet">
@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <h1><a href="../index.php">WeebSite</a></h1>
+            <h1><a href="../index.php">Quokka</a></h1>
             <h2 id="search_bar"><a href="../index.php">Barra de Pesquisa</a></h2>
             <?php
             if (isset($_SESSION['username'])) {

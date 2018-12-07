@@ -21,6 +21,19 @@ function getPost($id)
     return false;
 }
 
+function getPostsOfUser($username)
+{
+    global $db;
+    if ($stmt = $db->prepare('SELECT * FROM posts WHERE username=:username')) {
+        $params = ['username' => $username];
+        $stmt->execute($params);
+        return $stmt->fetchAll();
+    } else {
+        echo "Couldn't retrive post!";
+    }
+    return false;
+}
+
 function epochToTime($epoch)
 {
     return substr($epoch, 0, 10);
