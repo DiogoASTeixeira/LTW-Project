@@ -59,6 +59,34 @@ input[type=submit]{
     grid-area: midbot / second / bot / third;
 }
 
+#profile_posts{
+    grid-area: mid / first / bot / second;
+}
+#profile_comments{
+    grid-area: mid / first / bot / second;
+}
+body > p{
+    margin: 1em 0em;
+    padding-right: 0em;
+    border-right: 0em;
+    width: 3em;
+}
+
+body:not(header){
+    display: grid;
+    grid-template-rows: [top] 20% [mid] auto [midbot] 3em [bot];
+    grid-template-columns: [first] 80% [second] auto [third];
+}
+
+header{
+    grid-area: top / first / mid / third;
+
+}
+
+#posts{
+    grid-area: mid / first / bot / second;
+}
+
 .change_psw > {
 
 }
