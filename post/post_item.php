@@ -12,18 +12,24 @@ $postId = $_GET["id"];
 $post = getPost($postId);
 $comments = getPostComments($postId);
 
-include_once('../templates/posts/post_item.php');
-if(isset($_SESSION['username']))
-    include_once('../templates/comments/write_comment.php');
-
 ?>
-<section id=comments>
+<section id="post_item">
     <?php
-    foreach ($comments as $comment) {
-        include('../templates/comments/single_comment.php');
-    }
+
+    include_once('../templates/posts/post_item.php');
+    if(isset($_SESSION['username']))
+        include_once('../templates/comments/write_comment.php');
+
     ?>
+    <section id=comments>
+        <?php
+        foreach ($comments as $comment) {
+            include('../templates/comments/single_comment.php');
+        }
+        ?>
+    </section>
 </section>
+
 
 <?php
 include_once('../templates/common/footer.php');

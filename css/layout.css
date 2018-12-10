@@ -83,7 +83,7 @@ header{
 
 }
 
-#posts{
+#list_posts{
     grid-area: mid / first / bot / second;
 }
 

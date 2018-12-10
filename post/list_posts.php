@@ -5,7 +5,7 @@ include_once('../database/posts.php');
 $posts = getAllPosts();
 ?>
 
-<section id="posts">
+<section id="list_posts">
 
     <?php
     foreach ($posts as $post) {
