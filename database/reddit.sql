@@ -32,8 +32,8 @@ CREATE TABLE comments
 INSERT INTO users VALUES ('admin', '$2y$08$jWmJk/bzd5.eKjf.FaaSMelULahxV3tpGhMGscNKtaq812G7znmm2');
 
 INSERT INTO posts VALUES (1, 1541156269, "Example", "This is an example", 5, "author1");
-INSERT INTO posts VALUES (2, 1541156987, "Example 2", "Another Example", 5, "author2");
-INSERT INTO posts VALUES (3, 1541156123, "Example 3", "LAst Example", 5, "author 3");
+INSERT INTO posts VALUES (2, 1541156987, "Example 2", "Another Example", 512, "author2");
+INSERT INTO posts VALUES (3, 1541156123, "Example 3", "LAst Example", 100876, "author 3");
 
 INSERT INTO comments VALUES(1, 1541156300, "Cool Post", 3, "admin", 1);
 INSERT INTO comments VALUES(2, 1541156300, "Thank you OP, very cool", 100, "dabKing", 1);

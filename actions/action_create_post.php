@@ -23,11 +23,12 @@ $params = [':author' => $username, ':date' => $epoch, ':title' => $title, ':text
 try {
     if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
-        header("Location: ../index/index.php");
     } else {
         $db->errorInfo();
     }
 }catch(Exception $e) {
     $_SESSION['msg'] = array('type' => 'error', 'message' => 'An error occured while creating the post.');
 }
+header("Location: ../index/index.php");
+
 ?>

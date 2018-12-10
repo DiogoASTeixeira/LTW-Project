@@ -1,9 +1,20 @@
 <?php
 include_once('../includes/db_connection.php');
-function getAllPosts()
+function getAllPosts($order)
 {
     global $db;
-    $stmt = $db->prepare('SELECT * FROM posts ORDER BY date DESC');
+
+    switch($order){
+        case 'date':
+            $order = 'date';  
+            break;
+        case 'votes':
+        default:
+            $order = 'upvotes';
+    }
+
+    $string = 'SELECT * FROM posts ORDER BY '. $order .' DESC';
+    $stmt = $db->prepare($string);
     $stmt->execute();
     return $stmt->fetchAll();
 }

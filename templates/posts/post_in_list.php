@@ -3,4 +3,5 @@
     <p id="author">by <a href="../profile/profile.php?username=<?=$post['username']?>"><?=$post['username']?></a>
         in <?=date("d-m-Y", $post['date'])?></p>
     <p id="textbody"><?= $post['textbody']?></p>
+    <p id="upvotes"><?= $post['upvotes']?></p>
 </section>
