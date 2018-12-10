@@ -4,6 +4,11 @@ header {
     grid-template-rows: [top] 3em [mid] 5em [bot];
 }
 
+header #quokka_header 
+{
+    grid-area: top / first / bot / second;
+}
+
 header h1 {
     grid-area: mid / first / bot / second;
 }
@@ -80,7 +85,11 @@ body:not(header){
 
 header{
     grid-area: top / first / mid / third;
+}
 
+footer {
+    grid-area: midbot / first / bot / third;
+    padding-top: 1em;
 }
 
 #list_posts{

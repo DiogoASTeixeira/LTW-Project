@@ -4,6 +4,22 @@ body {
     font-family:  Helvetica, sans-serif;
 }
 
+header #quokka_header{
+    margin-left: 0.4em;
+}
+
+header #quokka_header img
+{
+    /*    border: 1px solid DarkOrange;*/
+    border-radius: 50%;
+    padding: 5px;
+    width: 95px;
+}
+
+header #quokka_header img:hover {
+    box-shadow: 0 0 2px 1px Coral;
+}
+
 header h1{
     text-align: left;
 }
@@ -13,7 +29,7 @@ header h2{
 header h3{
     text-align: right;
 }
-header div{
+header #user_action{
     text-align: right;
 }
 #signup{
@@ -64,11 +80,11 @@ input[type=submit]{
 }
 
 a:link {
-    color: #e59f12;
+    color: DarkOrange;
     text-decoration: none;
 }
 
 a:visited {
-    color: #755308;
+    color: SaddleBrown;
     text-decoration: none;
 }

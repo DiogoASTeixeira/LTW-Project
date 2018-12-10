@@ -10,6 +10,11 @@
     </head>
     <body>
         <header>
+            <div id="quokka_header">
+                <a href="../index.php">
+                    <img src="../images/quokka_header.png" alt="Quokka">
+                </a>
+            </div>
             <h1><a href="../index.php">Quokka</a></h1>
             <h2 id="search_bar"><a href="../index.php">Barra de Pesquisa</a></h2>
             <?php
