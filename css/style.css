@@ -1,8 +1,9 @@
 body {
-    background-color: black;
-    color: #c0c2b9;
+    background-color: rgb(218, 194, 139);
+    color:rgb(2, 43, 20);
     font-family:  Helvetica, sans-serif;
 }
+
 
 header #quokka_header{
     margin-left: 0.4em;
@@ -17,7 +18,7 @@ header #quokka_header img
 }
 
 header #quokka_header img:hover {
-    box-shadow: 0 0 2px 1px Coral;
+    box-shadow: 0 0 2px 1px rgb(6, 148, 70);
 }
 
 header h1{
@@ -37,21 +38,22 @@ header #user_action{
     padding-top: 25px;
 }
 
+
 #single_post{
     border-top-style: solid;
     border-bottom-style: solid;
-    border-color: aliceblue;
-    border-width: thin;
+    border-color:  rgb(16, 116, 12);
+    border-width: medium;
     margin-bottom: 1.5em;
     text-indent: 0.5em;
 }
 #single_comment{
     border-left-style: solid;
-    border-color: aliceblue;
-    border-width: medium;
+    border-color: rgb(16, 116, 12);
+    border-width: thick;
     margin-bottom: 1.5em;
     text-indent: 0.5em;
-    background-color: rgb(24, 24, 24);
+    background-color:rgb(211, 174, 87);
 }
 
 #single_post h1{
@@ -66,9 +68,9 @@ header #user_action{
     margin: 0em;
 }
 
-input[type=username], input[type=password]{
+input[type=username], input[type=password], input[type=text]{
     border-style: none;
-    background-color: #c0c2b9;
+    background-color: #f8e8cb;
     border-radius: 4px;
     width: 50%;
     height: 50%;
@@ -80,11 +82,11 @@ input[type=submit]{
 }
 
 a:link {
-    color: DarkOrange;
+    color: rgb(6, 148, 70);
     text-decoration: none;
 }
 
 a:visited {
-    color: SaddleBrown;
+    color: rgb(7, 97, 47);
     text-decoration: none;
 }

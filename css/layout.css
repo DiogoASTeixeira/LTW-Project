@@ -42,19 +42,52 @@ header div {
 #single_comment #textbody{
     grid-area: mid / first / bot / fourth;
 }
+#upvotes{
+    text-align: right;
+}
+
+#single_post{
+    display: grid;
+    grid-template-rows: [title] 3em [top] 2em [mid] 3em [bot];
+    grid-template-columns: [first] 33% [second] 34% [third] 33% [fourth];
+}
+#single_post > h1{
+    grid-area: title / first / top / second;
+}
+#single_post #author{
+    grid-area: top / first / mid / second;
+}
+#single_post #upvotes{
+    grid-area: title / second / top / third;
+}
+#single_post #date{
+    grid-area: title / third / top / fourth;
+}
+#single_post #textbody{
+    grid-area: mid / first / bot / fourth;
+}
+#upvotes{
+    text-align: right;
+}
 #post_item {
     padding-top: 2em;
 }
 
 form {
+    padding-left: 25%;
+    padding-top: 3%;
     display: grid;
     grid-template-rows: [top] 3em [mid] 3em [midbot] 3em [bot] 3em [extrabot];
-    grid-template-columns: [first] 20% [second] auto [third];
+    grid-template-columns: [first] 6em [second] auto [third];
 }
 label[for=uname]{
+    padding-top: 0.25em;
+    text-align: justify;
     grid-area: top / first / mid / second;
 }
 label[for=psw]{
+    padding-top: 0.25em;
+    text-align: justify;
     grid-area: mid / first / midbot / second;
 }
 input[type=username]{
