@@ -45,6 +45,11 @@ function getPostsOfUser($username)
     return false;
 }
 
+function votePost($username, $post_id, $value)
+{
+    //TODO 
+}
+
 function epochToTime($epoch)
 {
     return substr($epoch, 0, 10);

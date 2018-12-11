@@ -7,11 +7,12 @@ if( isset($_GET['order']) )
     $posts = getAllPosts($_GET['order']);
 else
     $posts = getAllPosts('date');
+
+include('../templates/posts/order_items.php');
 ?>
 
 <section id="list_posts">
     <?php
-    include('../templates/posts/order_items.php');
     foreach ($posts as $post) {
         include('../templates/posts/post_in_list.php');
     } 
