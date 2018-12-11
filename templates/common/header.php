@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/layout.css" rel="stylesheet">
-
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
@@ -20,7 +20,7 @@
             <?php
             if (isset($_SESSION['username'])) {
             ?>
-            <h3>Welcome, <?= $_SESSION["username"] ?></h3>
+            <h3>Welcome, <a href="../profile/profile.php"><?= $_SESSION["username"] ?></a></h3>
             <div id="user_action">
                 <a href="../post/create_post.php"> Create Post</a>
                 <a href="../actions/action_logout.php">Logout</a>
