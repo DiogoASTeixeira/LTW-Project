@@ -10,6 +10,5 @@ else
 
 
 foreach ($posts as $post) {
-    echo include('../templates/posts/post_in_list.php');
-    echo "hello";
+    include('../templates/posts/post_in_list.php');
 }?>
