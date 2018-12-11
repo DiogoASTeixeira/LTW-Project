@@ -42,6 +42,9 @@ header div {
 #single_comment #textbody{
     grid-area: mid / first / bot / fourth;
 }
+#post_item {
+    padding-top: 2em;
+}
 
 form {
     display: grid;
@@ -77,20 +80,6 @@ body > p{
     width: 3em;
 }
 
-body:not(header){
-    display: grid;
-    grid-template-rows: [top] 20% [mid] auto [midbot] 3em [bot];
-    grid-template-columns: [first] 80% [second] auto [third];
-}
-
-header{
-    grid-area: top / first / mid / third;
-}
-
-footer {
-    grid-area: midbot / first / bot / third;
-    padding-top: 1em;
-}
 
 #list_posts{
     grid-area: mid / first / bot / second;
