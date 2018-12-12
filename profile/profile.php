@@ -4,11 +4,8 @@ include_once('../database/posts.php');
 include_once('../database/comments.php');
 
 include_once('../templates/common/header.php');
-if(!isset($_SESSION['username'])){
-    $_SESSION['msg'] = array('type' => 'warning', 'message' => 'Must be logged in before accessing the profile.');
-    header("Location: ../index/index.php");
-}
-else if (!isset($_GET['username']))
+
+if (!isset($_GET['username']))
     header("Location: ./profile.php?username=".$_SESSION['username']);
 
 $username = $_GET['username'];

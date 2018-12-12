@@ -22,8 +22,11 @@ function getAllPosts($order)
 function getPost($id)
 {
     global $db;
-    if ($stmt = $db->prepare('SELECT * FROM posts WHERE post_id=:id LIMIT 1')) {
-        $params = [':id' => $id];
+
+    $sql = 'SELECT * FROM posts WHERE post_id=:id LIMIT 1';
+    $params = [':id' => $id];
+
+    if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
         return $stmt->fetch();
     } else {
@@ -35,8 +38,11 @@ function getPost($id)
 function getPostsOfUser($username)
 {
     global $db;
-    if ($stmt = $db->prepare('SELECT * FROM posts WHERE username=:username')) {
-        $params = ['username' => $username];
+
+    $sql = 'SELECT * FROM posts WHERE username=:username';
+    $params = ['username' => $username];
+
+    if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
         return $stmt->fetchAll();
     } else {
@@ -45,9 +51,24 @@ function getPostsOfUser($username)
     return false;
 }
 
+function create_post($username, $title, $textbody)
+{
+    $epoch = time(); 
+    
+    $sql = "INSERT INTO posts (username, date, title, textbody, upvotes) VALUES (:author, :date, :title, :textbody, :upvotes)";
+    $params = [':author' => $username, ':date' => $epoch, ':title' => $title, ':textbody' => $fulltext, ':upvotes' => 0];
+
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->execute($params);
+    } else {
+        $db->errorInfo();
+    }
+}
+
 function votePost($username, $post_id, $value)
 {
-    //TODO 
+    global $db;
+
 }
 
 function epochToTime($epoch)

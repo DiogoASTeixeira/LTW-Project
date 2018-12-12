@@ -17,7 +17,6 @@ include('../templates/posts/order_items.php');
         include('../templates/posts/post_in_list.php');
     } 
     ?>
-
 </section>
 
 <?php
