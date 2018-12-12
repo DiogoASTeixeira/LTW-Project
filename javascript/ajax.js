@@ -7,21 +7,27 @@ function votePost(post_id, value){
             {
                 document.getElementById("upvoteBtn").innerHTML = "Upvoted";
                 document.getElementById("downvoteBtn").innerHTML = "Downvote";
+                
+                //TODO upvote
             }
             else if( value == -1 && document.getElementById("downvoteBtn").innerHTML =="Downvote")
             {
                 document.getElementById("upvoteBtn").innerHTML = "Upvote";
                 document.getElementById("downvoteBtn").innerHTML = "Downvoted";
+                
+                //TODO downvote
             }
             else
             {
                 document.getElementById("upvoteBtn").innerHTML = "Upvote";
                 document.getElementById("downvoteBtn").innerHTML = "Downvote";
+                
+                //TODO cancel vote
             }
             document.getElementById("upvote").innerHTML = this.responseText;
         }
     };
-    xmlhttp.open("GET", "../database/process_vote.php?post_id=" + post_id, true);
+    xmlhttp.open("GET", "../database/process_vote.php?post_id=" + post_id + "&value=" + value, true);
     xmlhttp.send();
 }
 

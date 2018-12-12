@@ -7,7 +7,8 @@ if(!isset($_SESSION['username']))
 
 include_once('../database/posts.php');
 $post_id = $_REQUEST['post_id'];
+$value = $_REQUEST['value'];
 $username = $_SESSION['username'];
 
-echo "0";//TODO echo votePost($username, $post_id, $value);
+echo votePost($username, $post_id, $value);
 ?>

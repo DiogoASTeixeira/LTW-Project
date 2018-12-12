@@ -54,7 +54,7 @@ function getPostsOfUser($username)
 function create_post($username, $title, $textbody)
 {
     $epoch = time(); 
-    
+
     $sql = "INSERT INTO posts (username, date, title, textbody, upvotes) VALUES (:author, :date, :title, :textbody, :upvotes)";
     $params = [':author' => $username, ':date' => $epoch, ':title' => $title, ':textbody' => $fulltext, ':upvotes' => 0];
 
@@ -68,7 +68,71 @@ function create_post($username, $title, $textbody)
 function votePost($username, $post_id, $value)
 {
     global $db;
+    $value = $value == 1 ? 1 : -1; 
 
+    $sql = 'SELECT vote_value FROM post_votes WHERE username = :username AND post_id = :post_id';
+    $params = [':username' => $username, ':post_id' => $post_id];
+
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->execute($params);
+        $user_voted = $stmt->fetch();
+
+        if(!$user_voted) //User has no vote in this post
+        {
+            $sql = 'INSERT INTO post_votes (username, post_id, vote_value) VALUES (:username, :post_id, :values)';
+            $params = [':username' => $username, ':post_id' => $post_id, ':values' => $value];
+
+            if ($stmt = $db->prepare($sql)) {
+                $stmt->execute($params);
+            }
+            else 
+                $db->errorInfo();
+        }
+        else
+        {
+            $sql = 'SELECT vote_value FROM post_votes WHERE username = :username AND post_id = :post_id';
+            $params = [':username' => $username, ':post_id' => $post_id];
+
+            if ($stmt = $db->prepare($sql)) {
+                $stmt->execute($params);
+                $vote_value = (int)$stmt->fetch()["vote_value"];
+                if($value == $vote_value) //reclicked same value == cancel vote
+                {
+                    $sql = 'DELETE FROM post_votes WHERE username = :username AND post_id = :post_id';
+                    $params = [':username' => $username, ':post_id' => $post_id];
+                    if ($stmt = $db->prepare($sql))
+                        $stmt->execute($params);
+                    else 
+                        $db->errorInfo();
+                }
+                else 
+                {
+                    $sql = 'UPDATE post_votes SET vote_value = :value WHERE username = :username AND post_id = :post_id';
+                    $params = [':value' => $value, ':username' => $username, ':post_id' => $post_id];
+                    if ($stmt = $db->prepare($sql))
+                        $stmt->execute($params);
+                    else 
+                        $db->errorInfo();
+                }
+            }
+
+        }
+
+        //Return current upvote count
+        $sql = 'SELECT SUM(vote_value) AS total_votes FROM post_votes WHERE post_id = :post_id';
+        $params = [':post_id' => $post_id];
+
+        if ($stmt = $db->prepare($sql)) {
+            $stmt->execute($params);
+            $p = $stmt->fetch();
+            if(is_null($p["total_votes"]))
+                echo "0";
+            else 
+                echo $p["total_votes"];
+        }
+    } else {
+        echo "Couldn't retrive post!";
+    }
 }
 
 function epochToTime($epoch)

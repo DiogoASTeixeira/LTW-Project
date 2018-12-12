@@ -1,6 +1,9 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS post_votes;
+DROP TABLE IF EXISTS comment_votes;
+
 
 CREATE TABLE users
 (
@@ -30,14 +33,14 @@ CREATE TABLE comments
 
 CREATE TABLE post_votes
 (
-    username VARCHAR NOT NULL REFERENCES users
+    username VARCHAR NOT NULL REFERENCES users,
     post_id INTEGER NOT NULL REFERENCES posts,
     vote_value TINYINT NOT NULL
 );
 
 CREATE TABLE comment_votes
 (
-    username VARCHAR NOT NULL REFERENCES users
+    username VARCHAR NOT NULL REFERENCES users,
     comment_id INTEGER NOT NULL REFERENCES comments,
     vote_value TINYINT NOT NULL
 );
