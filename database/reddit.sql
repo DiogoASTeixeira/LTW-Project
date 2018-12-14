@@ -1,6 +1,9 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS post_votes;
+DROP TABLE IF EXISTS comment_votes;
+
 
 CREATE TABLE users
 (
@@ -28,6 +31,19 @@ CREATE TABLE comments
     post_id INTEGER NOT NULL REFERENCES posts
 );
 
+CREATE TABLE post_votes
+(
+    username VARCHAR NOT NULL REFERENCES users,
+    post_id INTEGER NOT NULL REFERENCES posts,
+    vote_value TINYINT NOT NULL
+);
+
+CREATE TABLE comment_votes
+(
+    username VARCHAR NOT NULL REFERENCES users,
+    comment_id INTEGER NOT NULL REFERENCES comments,
+    vote_value TINYINT NOT NULL
+);
 
 INSERT INTO users VALUES ('admin', '$2y$08$jWmJk/bzd5.eKjf.FaaSMelULahxV3tpGhMGscNKtaq812G7znmm2');
 
