@@ -73,7 +73,7 @@ function vote_post($username, $post_id, $value)
 
     $sql = 'SELECT vote_value FROM post_votes WHERE username = :username AND post_id = :post_id';
     $params = [':username' => $username, ':post_id' => $post_id];
-    
+
     if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
         $user_voted = $stmt->fetch();
@@ -115,6 +115,7 @@ function vote_post($username, $post_id, $value)
                     $db->errorInfo();
             }
         }
+        update_post_vote_count($post_id);
         return get_post_upvote_count($post_id);
     } else {
         echo "Couldn't retrive post!";
@@ -129,7 +130,7 @@ function get_vote_value($username, $post_id)
 
     if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
-       
+
         return (int)$stmt->fetch()["vote_value"];
     }
 }
@@ -138,16 +139,33 @@ function get_post_upvote_count($post_id)
 {
     global $db;
 
+    $sql = 'SELECT upvotes FROM posts WHERE post_id = :post_id';
+    $params = [':post_id' => $post_id];
+
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->execute($params);
+        $vote_count = $stmt->fetch();
+        return $vote_count["upvotes"];
+    }
+}
+
+function update_post_vote_count($post_id)
+{
+    global $db;
+
     $sql = 'SELECT SUM(vote_value) AS total_votes FROM post_votes WHERE post_id = :post_id';
     $params = [':post_id' => $post_id];
 
     if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
-        $p = $stmt->fetch();
-        if(is_null($p["total_votes"]))
-            return 0;
-        else 
-            return $p["total_votes"];
+        $vote_count = (int)$stmt->fetch()["total_votes"];
+        if(is_null($vote_count))
+            $vote_count = 0;
+        $sql = 'UPDATE posts SET upvotes=:vote_count WHERE post_id=:post_id';
+        $params = [':vote_count' => $vote_count, ':post_id' => $post_id];
+        if ($stmt = $db->prepare($sql)) {
+            $stmt->execute($params);
+        }
     }
 }
 

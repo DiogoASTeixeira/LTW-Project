@@ -1,10 +1,10 @@
 upvoteValue();
 
-function votePost(post_id, value){
+function votePost(post_id, value)
+{
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-
             var myobj = JSON.parse(this.responseText);
             document.getElementById("upvote").innerHTML = myobj[0];
             if(myobj[1] == 1) //is upvoted
@@ -35,7 +35,6 @@ function upvoteValue()
     let post_id = document.getElementById("post_id").innerHTML;
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             let vote_value = this.responseText;
 
             if(vote_value == 1) //is upvoted
@@ -60,7 +59,8 @@ function upvoteValue()
     xmlhttp.send();
 }
 
-function reorderPosts(post_id, value){
+function reorderPosts(post_id, value)
+{
     var xmlhttp = new XMLHttpRequest();
     let selected = document.getElementById("order").value;
     xmlhttp.onreadystatechange = function() {
