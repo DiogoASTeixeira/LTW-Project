@@ -38,6 +38,20 @@ header div {
     grid-area: top / first / mid / second;
 }
 
+#register {
+    display: grid;
+    grid-template-rows: [top] 35em [mid];
+    grid-template-columns: [first] 35% [second] 65% [third];
+}
+
+#register > form{
+    grid-area: top / second / mid / third;
+}
+#register > img{
+    grid-area: top / first / mid / second;
+}
+
+
 #single_comment{
     display: grid;
     grid-template-rows: [top] 2em [mid] 3em [bot];
@@ -128,6 +142,22 @@ input[type=submit]{
       height: 0%;
     }
     #login > form{
+        grid-area: top / second / mid / third;
+        width: auto;
+        height: auto;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 10%;
+    }
+    #register{
+        grid-template-rows: [top] auto [mid];
+        grid-template-columns: [second] 100% [third];
+    }
+    #register > img {
+      width: 0%;
+      height: 0%;
+    }
+    #register > form{
         grid-area: top / second / mid / third;
         width: auto;
         height: auto;
