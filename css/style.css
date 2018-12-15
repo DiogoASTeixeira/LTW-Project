@@ -65,6 +65,9 @@ header #user_action{
     font-size: 2em;
     margin: 0.3em 0em;
 }
+#single_post > #post_id{
+    visibility: hidden;
+}
 #author {
     font-size: 0.8em;
     margin: 0.3em;

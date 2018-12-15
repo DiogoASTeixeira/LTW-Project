@@ -66,14 +66,14 @@ function create_post($username, $title, $textbody)
     }
 }
 
-function votePost($username, $post_id, $value)
+function vote_post($username, $post_id, $value)
 {
     global $db;
     $value = $value == 1 ? 1 : -1; 
 
     $sql = 'SELECT vote_value FROM post_votes WHERE username = :username AND post_id = :post_id';
     $params = [':username' => $username, ':post_id' => $post_id];
-
+    
     if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
         $user_voted = $stmt->fetch();
@@ -115,7 +115,7 @@ function votePost($username, $post_id, $value)
                     $db->errorInfo();
             }
         }
-        echo get_post_upvote_count($post_id);
+        return get_post_upvote_count($post_id);
     } else {
         echo "Couldn't retrive post!";
     }
@@ -129,6 +129,7 @@ function get_vote_value($username, $post_id)
 
     if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
+       
         return (int)$stmt->fetch()["vote_value"];
     }
 }

@@ -1,33 +1,62 @@
+upvoteValue();
+
 function votePost(post_id, value){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
 
-            if(value == 1 && document.getElementById("upvoteBtn").innerHTML =="Upvote")
+            var myobj = JSON.parse(this.responseText);
+            document.getElementById("upvote").innerHTML = myobj[0];
+            if(myobj[1] == 1) //is upvoted
             {
                 document.getElementById("upvoteBtn").innerHTML = "Upvoted";
                 document.getElementById("downvoteBtn").innerHTML = "Downvote";
-                
-                //TODO upvote
             }
-            else if( value == -1 && document.getElementById("downvoteBtn").innerHTML =="Downvote")
+
+            else if(myobj[1] == -1) //is downvoted
             {
                 document.getElementById("upvoteBtn").innerHTML = "Upvote";
                 document.getElementById("downvoteBtn").innerHTML = "Downvoted";
-                
-                //TODO downvote
             }
             else
             {
                 document.getElementById("upvoteBtn").innerHTML = "Upvote";
                 document.getElementById("downvoteBtn").innerHTML = "Downvote";
-                
-                //TODO cancel vote
             }
-            document.getElementById("upvote").innerHTML = this.responseText;
         }
     };
     xmlhttp.open("GET", "../database/process_vote.php?post_id=" + post_id + "&value=" + value, true);
+    xmlhttp.send();
+}
+
+function upvoteValue() 
+{
+    var xmlhttp = new XMLHttpRequest();
+    let post_id = document.getElementById("post_id").innerHTML;
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            let vote_value = this.responseText;
+
+            if(vote_value == 1) //is upvoted
+            {
+                document.getElementById("upvoteBtn").innerHTML = "Upvoted";
+                document.getElementById("downvoteBtn").innerHTML = "Downvote";
+            }
+
+            else if(vote_value == -1) //is downvoted
+            {
+                document.getElementById("upvoteBtn").innerHTML = "Upvote";
+                document.getElementById("downvoteBtn").innerHTML = "Downvoted";
+            }
+            else
+            {
+                document.getElementById("upvoteBtn").innerHTML = "Upvote";
+                document.getElementById("downvoteBtn").innerHTML = "Downvote";
+            }
+        }
+    }
+    xmlhttp.open("GET", "../database/user_post_vote.php?post_id=" + post_id, true);
     xmlhttp.send();
 }
 

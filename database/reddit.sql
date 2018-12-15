@@ -54,3 +54,5 @@ INSERT INTO posts VALUES (3, 1541156123, "Example 3", "LAst Example", 100876, "a
 INSERT INTO comments VALUES(1, 1541156300, "Cool Post", 3, "admin", 1);
 INSERT INTO comments VALUES(2, 1541156300, "Thank you OP, very cool", 100, "dabKing", 1);
 INSERT INTO comments VALUES(3, 1541156300, "EVERYBODY DAB", 10234, "dabKing", 2);
+
+INSERT INTO post_votes VALUES("dabKing", 2, 1);

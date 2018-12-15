@@ -3,6 +3,7 @@
     <p id="author">by <a href="../profile/profile.php?username=<?= $post['username'] ?>"><?= $post['username'] ?></a></p>
     <p id="date">in <?= date("d-m-Y", $post['date']) ?></p>
     <p id="textbody"><?= $post['textbody'] ?></p>
+    <p id="post_id"><?= $post['post_id'] ?></p>
     <?php 
     if(isset($_SESSION['username']))
     {

@@ -10,5 +10,12 @@ $post_id = $_REQUEST['post_id'];
 $value = $_REQUEST['value'];
 $username = $_SESSION['username'];
 
-echo votePost($username, $post_id, $value);
+$a = vote_post($username, $post_id, $value);
+$b = get_vote_value($username, $post_id);
+
+$returnArray = array($a, $b);
+
+$json_return = json_encode($returnArray);
+    
+echo $json_return;
 ?>
