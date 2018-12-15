@@ -25,6 +25,33 @@ header div {
     grid-area: mid / third / bot / fourth;
 }
 
+#login {
+    display: grid;
+    grid-template-rows: [top] 35em [mid];
+    grid-template-columns: [first] 35% [second] 65% [third];
+}
+
+#login > form{
+    grid-area: top / second / mid / third;
+}
+#login > img{
+    grid-area: top / first / mid / second;
+}
+
+#register {
+    display: grid;
+    grid-template-rows: [top] 35em [mid];
+    grid-template-columns: [first] 35% [second] 65% [third];
+}
+
+#register > form{
+    grid-area: top / second / mid / third;
+}
+#register > img{
+    grid-area: top / first / mid / second;
+}
+
+
 #single_comment{
     display: grid;
     grid-template-rows: [top] 2em [mid] 3em [bot];
@@ -74,19 +101,22 @@ header div {
 }
 
 form {
-    padding-left: 25%;
-    padding-top: 3%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 20%;
     display: grid;
     grid-template-rows: [top] 3em [mid] 3em [midbot] 3em [bot] 3em [extrabot];
     grid-template-columns: [first] 6em [second] auto [third];
 }
 label[for=uname]{
-    padding-top: 0.25em;
+    padding-top: 1.4em;
+    color: white;
     text-align: justify;
     grid-area: top / first / mid / second;
 }
 label[for=psw]{
-    padding-top: 0.25em;
+    padding-top: 1.4em;
+    color: white;
     text-align: justify;
     grid-area: mid / first / midbot / second;
 }
@@ -97,8 +127,48 @@ input[type=password]{
     grid-area: mid / second / midbot / third;
 }
 input[type=submit]{
+    margin-left: 48%;
+    margin-top: 1em;
     grid-area: midbot / second / bot / third;
 }
+
+@media screen and (max-width: 850px) {
+    #login{
+        grid-template-rows: [top] auto [mid];
+        grid-template-columns: [second] 100% [third];
+    }
+    #login > img {
+      width: 0%;
+      height: 0%;
+    }
+    #login > form{
+        grid-area: top / second / mid / third;
+        width: auto;
+        height: auto;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 10%;
+    }
+    #register{
+        grid-template-rows: [top] auto [mid];
+        grid-template-columns: [second] 100% [third];
+    }
+    #register > img {
+      width: 0%;
+      height: 0%;
+    }
+    #register > form{
+        grid-area: top / second / mid / third;
+        width: auto;
+        height: auto;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 10%;
+    }
+    input[type=submit]{
+        margin-left: 0%;
+    }
+  }
 
 #profile_posts{
     grid-area: mid / first / bot / second;
