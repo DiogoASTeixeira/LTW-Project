@@ -2,6 +2,8 @@
 include_once('../includes/session.php');
 include_once('../includes/db_connection.php');
 
+include_once('../database/posts.php');
+
 //user is logged in
 if(!isset($_SESSION["username"]))
 {

@@ -53,10 +53,11 @@ function getPostsOfUser($username)
 
 function create_post($username, $title, $textbody)
 {
+    global $db;
     $epoch = time(); 
 
     $sql = "INSERT INTO posts (username, date, title, textbody, upvotes) VALUES (:author, :date, :title, :textbody, :upvotes)";
-    $params = [':author' => $username, ':date' => $epoch, ':title' => $title, ':textbody' => $fulltext, ':upvotes' => 0];
+    $params = [':author' => $username, ':date' => $epoch, ':title' => $title, ':textbody' => $textbody, ':upvotes' => 0];
 
     if ($stmt = $db->prepare($sql)) {
         $stmt->execute($params);
@@ -93,45 +94,59 @@ function votePost($username, $post_id, $value)
             $sql = 'SELECT vote_value FROM post_votes WHERE username = :username AND post_id = :post_id';
             $params = [':username' => $username, ':post_id' => $post_id];
 
-            if ($stmt = $db->prepare($sql)) {
-                $stmt->execute($params);
-                $vote_value = (int)$stmt->fetch()["vote_value"];
-                if($value == $vote_value) //reclicked same value == cancel vote
-                {
-                    $sql = 'DELETE FROM post_votes WHERE username = :username AND post_id = :post_id';
-                    $params = [':username' => $username, ':post_id' => $post_id];
-                    if ($stmt = $db->prepare($sql))
-                        $stmt->execute($params);
-                    else 
-                        $db->errorInfo();
-                }
+
+            $vote_value = get_vote_value($username, $post_id);
+            if($value == $vote_value) //reclicked same value == cancel vote
+            {
+                $sql = 'DELETE FROM post_votes WHERE username = :username AND post_id = :post_id';
+                $params = [':username' => $username, ':post_id' => $post_id];
+                if ($stmt = $db->prepare($sql))
+                    $stmt->execute($params);
                 else 
-                {
-                    $sql = 'UPDATE post_votes SET vote_value = :value WHERE username = :username AND post_id = :post_id';
-                    $params = [':value' => $value, ':username' => $username, ':post_id' => $post_id];
-                    if ($stmt = $db->prepare($sql))
-                        $stmt->execute($params);
-                    else 
-                        $db->errorInfo();
-                }
+                    $db->errorInfo();
             }
-
-        }
-
-        //Return current upvote count
-        $sql = 'SELECT SUM(vote_value) AS total_votes FROM post_votes WHERE post_id = :post_id';
-        $params = [':post_id' => $post_id];
-
-        if ($stmt = $db->prepare($sql)) {
-            $stmt->execute($params);
-            $p = $stmt->fetch();
-            if(is_null($p["total_votes"]))
-                echo "0";
             else 
-                echo $p["total_votes"];
+            {
+                $sql = 'UPDATE post_votes SET vote_value = :value WHERE username = :username AND post_id = :post_id';
+                $params = [':value' => $value, ':username' => $username, ':post_id' => $post_id];
+                if ($stmt = $db->prepare($sql))
+                    $stmt->execute($params);
+                else 
+                    $db->errorInfo();
+            }
         }
+        echo get_post_upvote_count($post_id);
     } else {
         echo "Couldn't retrive post!";
+    }
+}
+
+function get_vote_value($username, $post_id)
+{
+    global $db;
+    $sql = 'SELECT vote_value FROM post_votes WHERE username = :username AND post_id = :post_id';
+    $params = [':username' => $username, ':post_id' => $post_id];
+
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->execute($params);
+        return (int)$stmt->fetch()["vote_value"];
+    }
+}
+
+function get_post_upvote_count($post_id)
+{
+    global $db;
+
+    $sql = 'SELECT SUM(vote_value) AS total_votes FROM post_votes WHERE post_id = :post_id';
+    $params = [':post_id' => $post_id];
+
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->execute($params);
+        $p = $stmt->fetch();
+        if(is_null($p["total_votes"]))
+            return 0;
+        else 
+            return $p["total_votes"];
     }
 }
 

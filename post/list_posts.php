@@ -21,5 +21,4 @@ include('../templates/posts/order_items.php');
 
 <?php
 include_once('../templates/common/footer.php');
-
 ?>
