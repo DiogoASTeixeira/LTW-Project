@@ -5,14 +5,14 @@
 </ul>
 
 <form class="change_psw" action="../actions/action_change_password.php" method="post">
-    <label for="oldPasswordLabel"><b>Old Password</b></label>
-    <input type="password" name="oldPassword" required><br>
+    <label id="oldPswLabel" for="oldPasswordLabel"><b>Old Password</b></label>
+    <input id="oldPsw" type="password" name="oldPassword" required><br>
 
-    <label for="newPasswordLabel"><b>New Password</b></label>
-    <input type="password" name="newPassword" required><br>
+    <label id="newPswLabel" for="newPasswordLabel"><b>New Password</b></label>
+    <input id="newPsw" type="password" name="newPassword" required><br>
 
-    <label for="confirmPasswordLabel"><b>Confirm Password</b></label>
-    <input type="password" name="confirmPassword" required><br>
+    <label id="confirmPswLabel" for="confirmPasswordLabel"><b>Confirm Password</b></label>
+    <input id="confirmPsw" type="password" name="confirmPassword" required><br>
 
-    <input type="submit">
+    <input type="submit" value="Change">
 </form>

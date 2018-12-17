@@ -1,4 +1,7 @@
 <?php
+/*
+    This file is not used
+*/
 include_once('../includes/db_connection.php');
 include_once('../includes/session.php');
 

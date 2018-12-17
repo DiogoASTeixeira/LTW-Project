@@ -21,12 +21,14 @@ $userComments = getCommentsOfUser($username);
 
 ?>
 <section id=profile_posts>
+    <h1>Posts</h1>
     <?php
     foreach ($userPosts as $post)
         include('../templates/posts/post_in_list.php');
     ?>
 </section>
 <section id=profile_comments>
+    <h1>Comments</h1>
     <?php
     foreach ($userComments as $comment)
         include('../templates/comments/single_comment.php');

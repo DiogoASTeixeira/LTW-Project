@@ -4,8 +4,7 @@ header {
     grid-template-rows: [top] 3em [mid] 5em [bot];
 }
 
-header #quokka_header 
-{
+header #quokka_header {
     grid-area: top / first / bot / second;
 }
 
@@ -31,10 +30,11 @@ header div {
     grid-template-columns: [first] 35% [second] 65% [third];
 }
 
-#login > form{
+#login>form {
     grid-area: top / second / mid / third;
 }
-#login > img{
+
+#login>img {
     grid-area: top / first / mid / second;
 }
 
@@ -44,104 +44,121 @@ header div {
     grid-template-columns: [first] 35% [second] 65% [third];
 }
 
-#register > form{
+#register>form {
     grid-area: top / second / mid / third;
 }
-#register > img{
+
+#register>img {
     grid-area: top / first / mid / second;
 }
 
 
-#single_comment{
+#single_comment {
     display: grid;
     grid-template-rows: [top] 2em [mid] 3em [bot];
     grid-template-columns: [first] 33% [second] 34% [third] 33% [fourth];
 }
-#single_comment #author{
+
+#single_comment #author {
     grid-area: top / first / mid / second;
 }
-#single_comment #upvotes{
+
+#single_comment #upvotes {
     grid-area: top / second / mid / third;
 }
-#single_comment #date{
+
+#single_comment #date {
     grid-area: top / third / mid / fourth;
 }
-#single_comment #textbody{
+
+#single_comment #textbody {
     grid-area: mid / first / bot / fourth;
 }
-#upvotes{
+
+#upvotes {
     text-align: right;
 }
 
-#single_post{
+#single_post {
     display: grid;
     grid-template-rows: [title] 3em [top] 2em [mid] 3em [bot];
-    grid-template-columns: [first] 33% [second] 34% [third] 33% [fourth];
+    grid-template-columns: [first] 60% [second] 20% [third] 1fr [fourth];
 }
-#single_post > h1{
+
+#single_post>h1 {
     grid-area: title / first / top / second;
 }
-#single_post #author{
+
+#single_post #author {
     grid-area: top / first / mid / second;
 }
-#single_post #upvotes{
+
+#single_post #upvotes {
     grid-area: title / second / top / third;
 }
-#single_post #date{
+
+#single_post #date {
     grid-area: title / third / top / fourth;
 }
-#single_post #textbody{
+
+#single_post #textbody {
     grid-area: mid / first / bot / fourth;
 }
-#upvotes{
+
+#upvotes {
     text-align: right;
 }
+
 #post_item {
     padding-top: 2em;
 }
 
 form {
-    padding-left: 15%;
-    padding-right: 15%;
-    padding-top: 20%;
     display: grid;
     grid-template-rows: [top] 3em [mid] 3em [midbot] 3em [bot] 3em [extrabot];
     grid-template-columns: [first] 6em [second] auto [third];
 }
-label[for=uname]{
+
+label[for=uname] {
     padding-top: 1.4em;
     color: white;
     text-align: justify;
     grid-area: top / first / mid / second;
 }
-label[for=psw]{
+
+label[for=psw] {
     padding-top: 1.4em;
     color: white;
     text-align: justify;
     grid-area: mid / first / midbot / second;
 }
-input[type=username]{
+
+input[type=username] {
     grid-area: top / second / mid / third;
 }
-input[type=password]{
+
+input[type=password] {
     grid-area: mid / second / midbot / third;
 }
-input[type=submit]{
+
+input[type=submit] {
     margin-left: 48%;
     margin-top: 1em;
     grid-area: midbot / second / bot / third;
 }
 
 @media screen and (max-width: 850px) {
-    #login{
+    #login {
         grid-template-rows: [top] auto [mid];
         grid-template-columns: [second] 100% [third];
     }
-    #login > img {
-      width: 0%;
-      height: 0%;
+
+    #login>img {
+        width: 0%;
+        height: 0%;
     }
-    #login > form{
+
+    #login>form {
         grid-area: top / second / mid / third;
         width: auto;
         height: auto;
@@ -149,15 +166,18 @@ input[type=submit]{
         padding-right: 10%;
         padding-top: 10%;
     }
-    #register{
+
+    #register {
         grid-template-rows: [top] auto [mid];
         grid-template-columns: [second] 100% [third];
     }
-    #register > img {
-      width: 0%;
-      height: 0%;
+
+    #register>img {
+        width: 0%;
+        height: 0%;
     }
-    #register > form{
+
+    #register>form {
         grid-area: top / second / mid / third;
         width: auto;
         height: auto;
@@ -165,18 +185,21 @@ input[type=submit]{
         padding-right: 10%;
         padding-top: 10%;
     }
-    input[type=submit]{
+
+    input[type=submit] {
         margin-left: 0%;
     }
-  }
+}
 
-#profile_posts{
+#profile_posts {
     grid-area: mid / first / bot / second;
 }
-#profile_comments{
+
+#profile_comments {
     grid-area: mid / first / bot / second;
 }
-body > p{
+
+body>p {
     margin: 1em 0em;
     padding-right: 0em;
     border-right: 0em;
@@ -184,12 +207,41 @@ body > p{
 }
 
 
-#list_posts{
+#list_posts {
     grid-area: mid / first / bot / second;
 }
 
-.change_psw > {
-
+div#list_order>form {
+    padding-left: 1em;
+    /* padding-right: 1em; */
+    padding-top: 1em;
 }
 
+form.change_psw {
+    grid-template-rows: [top] auto [topmid] auto [mid] auto [midbot] 1fr [bot];
+    grid-template-columns: [first] auto [second] 1fr [third];
+}
 
+form.change_psw > label#oldPswLabel {
+    grid-area: top / first / topmid / second;
+}
+
+form.change_psw > label#newPswLabel {
+    grid-area: topmid / first / mid / second;
+}
+
+form.change_psw > label#confirmPswLabel {
+    grid-area: mid / first / midbot / second;
+}
+
+form.change_psw > input#oldPsw {
+    grid-area: top / second / topmid / third;
+}
+
+form.change_psw > input#newPsw {
+    grid-area: topmid / second / mid / third;
+}
+
+form.change_psw > input#confirmPsw {
+    grid-area: mid / second / midbot / third;
+}

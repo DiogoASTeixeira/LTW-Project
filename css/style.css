@@ -1,94 +1,138 @@
+:root {
+    --main-bg-colour: rgb(153, 153, 153);
+    --our-green: rgb(16, 116, 12);
+    --upvote-colour: rgb(228, 153, 41);
+    --downvote-colour: rgb(50, 115, 214);
+}
+
 body {
-    background-color: rgb(153, 153, 153);
-    color:rgb(2, 43, 20);
-    font-family:  Helvetica, sans-serif;
+    background-color: var(--main-bg-colour);
+    color: rgb(2, 43, 20);
+    font-family: Helvetica, sans-serif;
 }
 
 
-header #quokka_header{
+header #quokka_header {
     margin-left: 0.4em;
 }
 
-header #quokka_header img
-{
-    /*    border: 1px solid DarkOrange;*/
+header #quokka_header img {
     border-radius: 50%;
     padding: 5px;
     width: 95px;
-}
-footer{
-    position: relative;
-    bottom:0;
-    width:100%;
+    -webkit-transition-duration: 0.4s;
 }
 
 header #quokka_header img:hover {
-    box-shadow: 0 0 2px 1px rgb(16, 116, 12);
+    background: var(--our-green);
+    box-shadow: 0 0 2px 1px var(--our-green);
 }
 
-header h1{
+section#msg>div {
+    text-align: center;
+    max-width: 25rem;
+    border-radius: 0.75rem;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    padding: 0.55rem;
+    border: 2px solid var(--our-green);
+}
+
+section#msg>div.success {
+    background-color: rgb(156, 243, 134);
+}
+
+section#msg>div.error {
+    background-color: rgb(238, 99, 99)
+}
+
+section#msg>div.warning {
+    background-color: rgb(241, 252, 89)
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+header h1 {
     text-align: left;
 }
-header h2{
+
+header h2 {
     text-align: center;
 }
-header h3{
+
+header h3 {
     text-align: right;
 }
-header #user_action{
+
+header #user_action {
     text-align: right;
 }
-#signup{
+
+#signup {
     text-align: right;
     padding-top: 25px;
 }
 
 
-#single_post{
+#single_post {
     border-top-style: solid;
     border-bottom-style: solid;
-    border-color:  rgb(16, 116, 12);
+    border-color: var(--our-green);
     border-width: medium;
     margin-bottom: 1.5em;
     text-indent: 0.5em;
 }
-#single_comment{
+
+#single_comment {
     border-left-style: solid;
-    border-color: rgb(16, 116, 12);
+    border-color: var(--our-green);
     border-width: thick;
     margin-bottom: 1.5em;
     text-indent: 0.5em;
-    background-color:rgb(211, 174, 87);
+    background-color: rgb(211, 174, 87);
 }
 
-#single_post h1{
+#single_post h1 {
     font-size: 2em;
     margin: 0.3em 0em;
 }
-#single_post > #post_id{
+
+#single_post>#post_id {
     visibility: hidden;
 }
+
+#single_post #upvotes::after {
+    content: " votes";
+}
+
 #author {
     font-size: 0.8em;
     margin: 0.3em;
 }
-#single_comment #upvotes{
+
+#single_comment #upvotes {
     margin: 0em;
 }
 
-input[type=username], input[type=password], input[type=text]{
+input[type=username],
+input[type=password],
+input[type=text] {
     padding: 0.1em;
     padding-left: 0.7em;
-    border-bottom:2px solid rgb(16, 116, 12);
+    border-bottom: 2px solid var(--our-green);
     border-right: 0cm;
-    background-color: rgb(153, 153, 153);
+    background-color: var(--main-bg-colour);
     border-radius: 4px;
     width: 70%;
     height: 60%;
 }
 
 a:link {
-    color: rgb(16, 116, 12);
+    color: var(--our-green);
     text-decoration: none;
 }
 
@@ -97,49 +141,130 @@ a:visited {
     text-decoration: none;
 }
 
-input[type=submit]{
-    background-color: rgb(153, 153, 153);
+input[type="submit"] {
+    background-color: var(--main-bg-colour);
     width: 25%;
     height: 70%;
     border-radius: 12px;
-    color:white;
+    color: white;
     font-size: 1em;
-    border: 2px solid rgb(16, 116, 12);
+    border: 2px solid var(--our-green);
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
 
-input[type=submit]:hover{
-    background-color: rgb(16, 116, 12); /* Green */
-  color: white;
+input[type="submit"]:hover {
+    background-color: var(--our-green);
+    color: white;
 }
 
-#login > img{
-    border-right: 3px solid rgb(7, 97, 47);
-    width: 100%;
-    height: 100%;
-}
-#login > img{
-    border-right: 3px solid rgb(7, 97, 47);
+#login>img {
+    border-right: 3px solid var(--our-green);
     width: 100%;
     height: 100%;
 }
 
-#register > img{
-    border-right: 3px solid rgb(7, 97, 47);
+#login>img {
+    border-right: 3px solid var(--our-green);
     width: 100%;
     height: 100%;
 }
 
-@media screen and (max-width: 850px){
-    input[type=submit]{
+#register>img {
+    border-right: 3px solid var(--our-green);
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 20%;
+}
+
+div#list_order form {
+    text-align: right;
+}
+
+form#write_comment {
+    padding: 0em;
+    display: block;
+}
+
+textarea#write_comment {
+    background-color: rgb(196, 194, 194);
+    border-color: var(--our-green);
+    border-style: solid;
+    width: 100%;
+    outline: none;
+    resize: none;
+    border-radius: 0.5em;
+}
+
+input#write_comment {
+    margin: 1em;
+    height: 2em;
+    width: 2/5fr;
+}
+
+div#list_order select#order {
+    padding: 0.1em;
+    padding-left: 0.7em;
+    border: 0.2em solid var(--our-green);
+    border-right: 0cm;
+    background-color: var(--main-bg-colour);
+    border-radius: 1em;
+    width: 20%;
+    -webkit-transition-duration: 0.4s;
+}
+
+div#list_order select#order:hover {
+    background-color: var(--our-green);
+    color: white;
+}
+
+button {
+    border: 0.2em solid;
+    background-color: var(--main-bg-colour);
+    border-radius: 1em;
+    -webkit-transition-duration: 0.4s;
+}
+
+button#upvoteBtn {
+    border-color: var(--upvote-colour);
+    border-top-width: 0.1em;
+}
+
+button#downvoteBtn {
+    border-color: var(--downvote-colour);
+    border-bottom-width: 0.1em;
+}
+
+button#upvoteBtn:hover {
+    background-color: var(--upvote-colour);
+    color: white;
+}
+
+button#downvoteBtn:hover {
+    background-color: var(--downvote-colour);
+    color: white;
+}
+
+form.change_psw {
+    padding: 1rem;
+}
+
+@media screen and (max-width: 850px) {
+    input[type=submit] {
         width: 5em;
         height: 2em;
     }
 }
 
-@media screen and (max-width: 400px){
-    input[type=username], input[type=password], input[type=text]{
+@media screen and (max-width: 400px) {
+    input[type=username],
+    input[type=password],
+    input[type=text] {
         width: 15em;
         height: 2em;
     }
