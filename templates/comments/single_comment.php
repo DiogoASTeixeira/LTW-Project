@@ -5,8 +5,8 @@
     <?php 
     if (isset($_SESSION['username'])) {
     ?>
-    <button id="upvoteBtn" type="button" onmouseup="vote_comment(<?= $post["comment_id"] ?>, 1)">Upvote</button> 
-    <button id="downvoteBtn" type="button" onmouseup="vote_comment(<?= $post["comment_id"] ?>, -1)">Downvote</button> 
+    <button id="upvoteBtn" type="button" onmouseup="voteComment(<?= $post["comment_id"] ?>, 1)">Upvote</button> 
+    <button id="downvoteBtn" type="button" onmouseup="voteComment(<?= $post["comment_id"] ?>, -1)">Downvote</button> 
     <?php
     }
     ?>

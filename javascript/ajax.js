@@ -24,7 +24,7 @@ function votePost(post_id, value) {
     xmlhttp.send();
 }
 
-function vote_comment(comment_id, value) {
+function voteComment(comment_id, value) {
     var xmlhttp = new XMLHttpRequest();
     let comment = document.getElementById("single_comment");
     xmlhttp.onreadystatechange = function () {
