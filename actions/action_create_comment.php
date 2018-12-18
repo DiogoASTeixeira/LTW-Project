@@ -19,7 +19,7 @@ $username = $_SESSION["username"];
 $safeText = htmlspecialchars($_POST["commentText"]);
 $postId = $_POST["postId"];
 
-if (insertComment($username, $safeText, $postId)){
+if (insert_comment($username, $safeText, $postId)){
     $_SESSION['msg'] = array('type' => 'success', 'message' => 'Comment added successfully.');
     //    TODO echo json_encode($safeText);
 }

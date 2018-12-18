@@ -10,7 +10,7 @@ include_once('../templates/common/header.php');
 
 $postId = $_GET["id"];
 $post = getPost($postId);
-$comments = getPostComments($postId);
+$comments = get_post_comments($postId);
 
 ?>
 <section id="post_item">

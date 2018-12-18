@@ -6,12 +6,12 @@ if(!isset($_SESSION['username']))
     echo "ERROR";
 
 include_once('../database/comments.php');
-$post_id = $_REQUEST['post_id'];
+$comment_id = $_REQUEST['comment_id'];
 $value = $_REQUEST['value'];
 $username = $_SESSION['username'];
 
-$a = vote_post($username, $post_id, $value);
-$b = get_vote_value($username, $post_id);
+$a = vote_comment($username, $comment_id, $value);
+$b = get_comment_vote_value($username, $comment_id);
 
 $returnArray = array($a, $b);
 

@@ -1,6 +1,6 @@
 <?php
 include_once('../includes/db_connection.php');
-function getPostComments($postId)
+function get_post_comments($postId)
 {
     global $db;
     if ($stmt = $db->prepare('SELECT * FROM comments WHERE post_id=:post_id ORDER BY upvotes DESC')) {
@@ -13,7 +13,7 @@ function getPostComments($postId)
     }
 }
 
-function getCommentsOfUser($username)
+function get_comments_of_user($username)
 {
     global $db;
     if ($stmt = $db->prepare('SELECT * FROM comments WHERE username=:username')) {
@@ -26,7 +26,7 @@ function getCommentsOfUser($username)
     }
 }
 
-function getComment($id)
+function get_comment($id)
 {
     global $db;
     if ($stmt = $db->prepare('SELECT * FROM comments WHERE comment_id=:comment_id LIMIT 1')) {
@@ -39,7 +39,7 @@ function getComment($id)
     return false;
 }
 
-function insertComment($username, $text, $postId)
+function insert_comment($username, $text, $postId)
 {
     global $db;
     $epoch = time();
@@ -57,7 +57,7 @@ function insertComment($username, $text, $postId)
     }catch(Exception $e) {return false;}
 }
 
-function voteComment($username, $comment_id, $value){
+function vote_comment($username, $comment_id, $value){
     global $db;
     $value = $value == 1 ? 1 : -1;
 
@@ -108,7 +108,35 @@ function voteComment($username, $comment_id, $value){
 
 function get_comment_vote_value($comment_id)
 {
-    
+    global $db;
+
+    $sql = 'SELECT upvotes FROM comments WHERE comment_id = :comment_id';
+    $params = [':comment_id' => $comment_id];
+
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->execute($params);
+        $vote_count = $stmt->fetch();
+        return $vote_count["upvotes"];
+    }
 }
 
+function update_comment_vote_count($comment_id)
+{
+    global $db;
+
+    $sql = 'SELECT SUM(vote_value) AS total_votes FROM comment_votes WHERE comment_id = :comment_id';
+    $params = [':comment_id' => $comment_id];
+
+    if ($stmt = $db->prepare($sql)) {
+        $stmt->execute($params);
+        $vote_count = (int)$stmt->fetch()["total_votes"];
+        if(is_null($vote_count))
+            $vote_count = 0;
+        $sql = 'UPDATE comments SET upvotes=:vote_count WHERE comment_id = :comment_id';
+        $params = [':vote_count' => $vote_count, ':comment_id' => $comment_id];
+        if ($stmt = $db->prepare($sql)) {
+            $stmt->execute($params);
+        }
+    }
+}
 ?>

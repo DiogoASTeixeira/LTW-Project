@@ -24,14 +24,15 @@ function votePost(post_id, value) {
     xmlhttp.send();
 }
 
-function voteComment(comment_id, value) {
+function vote_comment(comment_id, value) {
     var xmlhttp = new XMLHttpRequest();
+    let comment = document.getElementById("single_comment");
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-//            console.log('HERE');
+            console.log(comment);
         }
     };
-    xmlhttp.open("GET", "../database/process_vote_comment.php?post_id=" + comment_id + "&value=" + value, true);
+    xmlhttp.open("GET", "../database/process_vote_comment.php?comment_id=" + comment_id + "&value=" + value, true);
     xmlhttp.send();
 }
 

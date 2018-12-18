@@ -17,7 +17,7 @@ if($username === $_SESSION['username']){
 
 
 $userPosts = getPostsOfUser($username);
-$userComments = getCommentsOfUser($username);
+$userComments = get_comments_of_user($username);
 
 ?>
 <section id=profile_posts>
