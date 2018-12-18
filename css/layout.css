@@ -55,7 +55,7 @@ header div {
 
 #single_comment {
     display: grid;
-    grid-template-rows: [top] 2em [mid] 3em [bot];
+    grid-template-rows: [top] 2em [mid] 3em [bot] 3em [bott];
     grid-template-columns: [first] 33% [second] 34% [third] 33% [fourth];
 }
 
@@ -64,7 +64,14 @@ header div {
 }
 
 #single_comment #upvotes {
-    grid-area: top / second / mid / third;
+    grid-area: top / third / mid / fourth;
+    padding-right: 1em;
+}
+#single_comment #upvoteBtn {
+    grid-area: mid / third / bot / fourth;
+}
+#single_comment #downvoteBtn {
+    grid-area: bot / third / bott / fourth;
 }
 
 #single_comment #date {
