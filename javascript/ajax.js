@@ -1,4 +1,4 @@
-upvoteValue();
+//upvoteValue();
 
 function votePost(post_id, value) {
     var xmlhttp = new XMLHttpRequest();
