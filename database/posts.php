@@ -91,10 +91,6 @@ function vote_post($username, $post_id, $value)
         }
         else
         {
-            $sql = 'SELECT vote_value FROM post_votes WHERE username = :username AND post_id = :post_id';
-            $params = [':username' => $username, ':post_id' => $post_id];
-
-
             $vote_value = get_vote_value($username, $post_id);
             if($value == $vote_value) //reclicked same value == cancel vote
             {

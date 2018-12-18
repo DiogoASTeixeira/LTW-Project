@@ -101,6 +101,10 @@ header #user_action {
     margin: 0.3em 0em;
 }
 
+section#single_comment > p#comment_id{
+    visibility: hidden;
+}
+
 #single_post>#post_id {
     visibility: hidden;
 }

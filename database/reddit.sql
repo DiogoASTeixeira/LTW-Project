@@ -50,7 +50,7 @@ INSERT INTO users VALUES ('dabKing', '$2y$08$Oy4RuK8sO7EJixxWUx/7ceFU9QN6QDZem4g
 INSERT INTO users VALUES ('bush911', '$2y$08$ky1s1OPoIMczsYUeoFyMcuZBA5j1zrK7KwW7O62MN/g2GHnDYXLRW');
 
 
-INSERT INTO posts VALUES (1, 1541156987, "Lorem Ipsum", "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 1, "admin");
+INSERT INTO posts VALUES (1, 1541156987, "Best Star Wars quote", "I don't like sand.", 1, "admin");
 INSERT INTO posts VALUES (2, 1541156269, "The secret to happiness", "It's a secret", 2, "dabKing");
 INSERT INTO posts VALUES (3, 1541156123, "The truth about the twin towers", "My username", 0, "bush911");
 
