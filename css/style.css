@@ -93,7 +93,7 @@ header #user_action {
     border-width: thick;
     margin-bottom: 1.5em;
     text-indent: 0.5em;
-    background-color: rgb(211, 174, 87);
+    background-color: rgb(99, 99, 99);
 }
 
 #single_post h1 {
@@ -233,11 +233,13 @@ button {
 button#upvoteBtn {
     border-color: var(--upvote-colour);
     border-top-width: 0.1em;
+    height: 2em;
 }
 
 button#downvoteBtn {
     border-color: var(--downvote-colour);
     border-bottom-width: 0.1em;
+    height: 2em;
 }
 
 button#upvoteBtn:hover {

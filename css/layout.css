@@ -88,13 +88,19 @@ header div {
 #single_post>h1 {
     grid-area: title / first / top / second;
 }
+#single_post>p{
+    grid-area: title / second / top / third;
+}
 
 #single_post #author {
     grid-area: top / first / mid / second;
 }
 
-#single_post #upvotes {
-    grid-area: title / second / top / third;
+#single_post #upvoteBtn {
+    grid-area: top / third / mid / fourth;
+}
+#single_post #downvoteBtn {
+    grid-area: mid / third / bot / fourth;
 }
 
 #single_post #date {
@@ -102,7 +108,7 @@ header div {
 }
 
 #single_post #textbody {
-    grid-area: mid / first / bot / fourth;
+    grid-area: mid / first / bot / third;
 }
 
 #upvotes {
@@ -189,6 +195,7 @@ input[type=submit] {
     input[type=submit] {
         margin-left: 0%;
     }
+    
 }
 
 #profile_posts {
